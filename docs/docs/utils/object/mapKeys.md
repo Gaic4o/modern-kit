@@ -6,27 +6,13 @@
 
 [🔗 실제 구현 코드 확인](https://github.com/modern-agile-team/modern-kit/blob/main/packages/utils/src/object/mapKeys/index.ts)
 
-## Benchmark
-- `hz`: 초당 작업 수
-- `mean`: 평균 응답 시간(ms)
-
-|이름|hz|mean|성능|
-|------|---|---|---|
-|modern-kit/mapKeys|411,676.30|0.0024|`fastest`|
-|lodash/mapKeys|386,336.12|0.0026|`slowest`|
-
-- **modern-kit/mapKeys**
-  - `1.07x` faster than lodash/mapKeys
-
 ## Interface
+
 ```ts title="typescript"
-function mapKeys<
-  T extends Record<PropertyKey, any>,
-  U extends PropertyKey
->(
+function mapKeys<T extends Record<PropertyKey, any>>(
   object: T,
-  iteratee: (iterateData: { key: keyof T; value: T[keyof T]; object: T }) => U
-): Record<U, T[keyof T]>
+  iteratee: (iterateData: { key: keyof T; value: T[keyof T]; object: T }) => string
+): Record<string, T[keyof T]>
 ```
 
 ## Usage
